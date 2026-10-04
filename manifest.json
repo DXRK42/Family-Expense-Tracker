@@ -1,0 +1,9 @@
+{
+    "name": "Family Expense Tracker",
+    "short_name": "Family Expenses",
+    "start_url": "./",
+    "display": "standalone",
+    "background_color": "#111827",
+    "theme_color": "#111827",
+    "description": "A smart and simple family expense tracker."
+  }
