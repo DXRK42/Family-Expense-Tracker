@@ -3,6 +3,8 @@ let expenses =
 
 const expenseName = document.getElementById("expenseName");
 const amount = document.getElementById("amount");
+const date = document.getElementById("date");
+date.value = new Date().toISOString().split("T")[0];
 const category = document.getElementById("category");
 const paidBy = document.getElementById("paidBy");
 const addButton = document.querySelector("button:not(#darkModeButton)");
@@ -82,9 +84,10 @@ function displayExpenses() {
                 <br>
 
                 <small>
-                    ${expense.category}
-                    • Paid by ${expense.paidBy}
-                </small>
+    ${expense.category}
+    • Paid by ${expense.paidBy}
+    • ${expense.date}
+</small>
             </div>
 
 
@@ -231,8 +234,11 @@ addButton.addEventListener(
             category:
                 category.value,
 
-            paidBy:
-                paidBy.value
+                paidBy:
+                paidBy.value,
+            
+            date:
+                date.value
 
         };
 
@@ -334,4 +340,8 @@ darkModeButton.addEventListener(
 // =========================
 
 applyDarkMode();
-displayExpenses();
+displayExpenses();if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js");
+    });
+  }
